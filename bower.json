@@ -1,0 +1,23 @@
+{
+  "name": "time",
+  "version": "0.0.0",
+  "authors": [
+    "Stef van den Berg <stef.vandeberg@webpower.nl>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.3"
+  }
+}
