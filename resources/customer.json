@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "The cashback company",
+    "contact": "Jamal Atide",
+    "email": "info@thecashbackcompany"
+  },
+  {
+    "id": 2,
+    "name": "Webpower",
+    "contact": "Jerlijn Kasmani",
+    "email": "jerlijn.kasmani@webpower.nl"
+  },
+  {
+    "id": 3,
+    "name": "Dexperts",
+    "contact": "Stef van den Berg",
+    "email": "stef@dexperts.nl"
+  }
+]

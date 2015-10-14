@@ -30,12 +30,24 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          'dist/ui/components/timesheet.js': 'ui/components/timesheet.js'
+          'dist/ui/components/timesheet.js': 'ui/components/timesheet.js',
+          'dist/ui/components/selector.js': 'ui/components/selector.js'
+        }
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          hostname: '*',
+          port: 9000,
+          onCreateServer: function(server, connect, options) {
+            //require('./server')(server);
+          }
         }
       }
     },
     watch: {
-      test: {
+      js: {
         files: ['ui/**/*.js'],
         tasks: ['babel']
       },
@@ -47,8 +59,8 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask(
-    'default',
-    ['babel', 'less', 'watch']
+    'serve',
+    ['babel', 'less', 'connect', 'watch']
   );
 
 

@@ -3,9 +3,10 @@
 var TimeSheet = React.createClass({
   render: function() {
     return (
-      <div className="timeSheet">
-          Vul hier uw uren in
-      </div>
+      <form id="nl-form" className="nl-form">
+        Ik heb uren gemaakt voor
+        <Selector />
+      </form>
     );
   }
 });
