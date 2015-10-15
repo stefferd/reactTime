@@ -1,6 +1,10 @@
 'use strict';
 
-var Selector = React.createClass({
+var CompanySelector = React.createClass({
+  displayName: 'CompanySelector',
+  propTypes: {
+    onChange: React.PropTypes.func.isRequired
+  },
   getInitialState: function() {
     return {
       customers: []
@@ -16,21 +20,26 @@ var Selector = React.createClass({
       }
     }.bind(this));
   },
+  handleChange: function(event) {
+    var value = event.target.value;
+    this.setState({
+      value: value
+    });
+    this.props.onChange.call(this, 'customer', value);
+  },
   render: function() {
-    console.log(this.state.customers);
     if (!this.state.customers || this.state.customers.length === 0) {
       return null;
     }
     return (
       <div className="nl-field nl-dd">
-        <a className="nl-field-toggle">{this.state.customers[0].name}</a>
-        <ul>
+        <select onChange={this.handleChange}>
           {
             this.state.customers.map(function(customer) {
-              return <li>{customer.name}</li>
+              return <option value={customer.name}>{customer.name}</option>
             })
           }
-        </ul>
+        </select>
       </div>
     );
   }

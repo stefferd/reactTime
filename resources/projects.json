@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Coopbespaarpoen.nl",
+    "customer": 1
+  },
+  {
+    "id": 2,
+    "name": "Fitnessvoordeelpas.nl",
+    "customer": 1
+  },
+  {
+    "id": 3,
+    "name": "Beautyvoordeelpas.nl",
+    "customer": 1
+  },
+  {
+    "id": 4,
+    "name": "Webwinkelpas.nl",
+    "customer": 1
+  }
+]

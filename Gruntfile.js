@@ -31,7 +31,8 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'dist/ui/components/timesheet.js': 'ui/components/timesheet.js',
-          'dist/ui/components/selector.js': 'ui/components/selector.js'
+          'dist/ui/components/companyselector.js': 'ui/components/companyselector.js',
+          'dist/ui/components/projectselector.js': 'ui/components/projectselector.js'
         }
       }
     },
