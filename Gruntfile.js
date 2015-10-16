@@ -32,7 +32,10 @@ module.exports = function (grunt) {
         files: {
           'dist/ui/components/timesheet.js': 'ui/components/timesheet.js',
           'dist/ui/components/companyselector.js': 'ui/components/companyselector.js',
-          'dist/ui/components/projectselector.js': 'ui/components/projectselector.js'
+          'dist/ui/components/projectselector.js': 'ui/components/projectselector.js',
+          'dist/ui/components/dateselection.js': 'ui/components/dateselection.js',
+          'dist/ui/components/amountselector.js': 'ui/components/amountselector.js',
+          'dist/ui/components/description.js': 'ui/components/description.js'
         }
       }
     },
@@ -62,6 +65,11 @@ module.exports = function (grunt) {
   grunt.registerTask(
     'serve',
     ['babel', 'less', 'connect', 'watch']
+  );
+
+  grunt.registerTask(
+    'build',
+    ['babel', 'less']
   );
 
 

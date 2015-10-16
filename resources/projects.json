@@ -18,5 +18,35 @@
     "id": 4,
     "name": "Webwinkelpas.nl",
     "customer": 1
+  },
+  {
+    "id": 5,
+    "name": "Webpower content-editor",
+    "customer": 2
+  },
+  {
+    "id": 6,
+    "name": "PersuasionAPI",
+    "customer": 2
+  },
+  {
+    "id": 7,
+    "name": "Administratie",
+    "customer": 3
+  },
+  {
+    "id": 8,
+    "name": "Hobbyvoordeelclub.nl",
+    "customer": 3
+  },
+  {
+    "id": 9,
+    "name": "Vergelijkersimonly.nl",
+    "customer": 3
+  },
+  {
+    "id": 10,
+    "name": "perscriptio.nl",
+    "customer": 3
   }
 ]

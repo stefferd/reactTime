@@ -1,6 +1,9 @@
 'use strict';
 
-var ProjectSelector = React.createClass({
+var React = require('react');
+var ProjectSelector;
+
+module.exports = ProjectSelector = React.createClass({
   displayName: 'ProjectSelector',
   propTypes: {
     onChange: React.PropTypes.func.isRequired,
@@ -8,21 +11,17 @@ var ProjectSelector = React.createClass({
   },
   getInitialState: function() {
     return {
+      customer: this.props.customer ? this.props.customer : 1,
       projects: [],
-      customer: 0
+      value: 0
     };
   },
   componentDidMount: function() {
     $.get('resources/projects.json', function(projects) {
-      var foundProjects = [];
       if (this.isMounted()) {
-        projects.forEach((project) => {
-          if (project.customer == this.props.customer) {
-            foundProjects.push(project);
-          }
-        });
         this.setState({
-          projects: foundProjects
+          projects: projects,
+          customer: this.props.customer
         });
       }
     }.bind(this));
@@ -32,32 +31,26 @@ var ProjectSelector = React.createClass({
     this.setState({
       value: value
     });
-    this.props.onChange.call(this, 'customer', value);
+    this.props.onChange.call(this, 'project', value);
   },
   render: function() {
-    $.get('resources/projects.json', (projects) => {
-      var foundProjects = [];
-      projects.forEach((project) => {
-        if (project.customer == this.props.customer) {
-          foundProjects.push(project);
-        }
-      });
-      this.setState({
-        projects: foundProjects
-      });
-    });
-
+    this.state.customer = this.props.customer;
     if (!this.state.projects || this.state.projects.length === 0) {
       return null;
     }
+    var projectsForCustomer = this.state.projects.filter(function (project)  {
+      return project.customer === this.state.customer;
+    }.bind(this));
+    var options = (
+      projectsForCustomer.map(function(project) {
+        return <option value={project.id}>{project.name}</option>
+      })
+    );
+
     return (
       <div className="nl-field nl-dd">
         <select onChange={this.handleChange}>
-          {
-            this.state.projects.map(function(project) {
-              return <option value={project.id}>{project.name}</option>
-            })
-          }
+          {options}
         </select>
       </div>
     );

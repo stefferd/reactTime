@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "serve": "grunt serve",
+    "build": "grunt build",
+    "start": "npm run build & nodemon server.js",
     "postinstall": "npm dedupe && bower install"
   },
   "author": "Stef van den Berg <stef@dexperts.nl> (http://www.dexperts.nl)",
@@ -19,6 +21,15 @@
     "grunt-contrib-watch": "^0.6.1",
     "less-plugin-autoprefix": "^1.5.1",
     "load-grunt-tasks": "^3.3.0",
+    "nodemon": "^1.7.1",
+    "react": "^0.14.0",
     "time-grunt": "^1.2.1"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "http": "0.0.0",
+    "mongoose": "^4.1.11",
+    "node-jsx": "^0.13.3"
   }
 }

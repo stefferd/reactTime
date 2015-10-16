@@ -1,13 +1,17 @@
 'use strict';
 
-var CompanySelector = React.createClass({
+var React = require('react');
+var CompanySelector;
+
+module.exports = CompanySelector = React.createClass({
   displayName: 'CompanySelector',
   propTypes: {
     onChange: React.PropTypes.func.isRequired
   },
   getInitialState: function() {
     return {
-      customers: []
+      customers: [],
+      value: 1
     };
   },
   componentDidMount: function() {
@@ -16,7 +20,6 @@ var CompanySelector = React.createClass({
         this.setState({
           customers: response
         });
-        console.log(response);
       }
     }.bind(this));
   },
@@ -36,7 +39,7 @@ var CompanySelector = React.createClass({
         <select onChange={this.handleChange}>
           {
             this.state.customers.map(function(customer) {
-              return <option value={customer.name}>{customer.name}</option>
+              return <option value={customer.id}>{customer.name}</option>
             })
           }
         </select>
