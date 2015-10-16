@@ -18,7 +18,7 @@ app.set('view engine', 'handlebars');
 app.disable('etag');
 
 // Connect to our mongo database
-mongoose.connect('mongodb://localhost/perscriptio');
+//mongoose.connect('mongodb://localhost/perscriptio');
 
 // Index Route
 app.get('/', routes.index);
