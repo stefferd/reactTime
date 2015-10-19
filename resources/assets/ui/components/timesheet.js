@@ -43,7 +43,7 @@ var TimeSheet = React.createClass({
         heb ik <AmountSelector onChange={this.handleChange} /> uur gemaakt
         <DateSelection onChange={this.handleChange} />
         <br />
-        <Description onChange={this.handleChange} />
+        <Description onChange={this.handleChange} /><br />
         <button type="button" onClick={this.handleClick}>Opslaan</button>
       </form>
     );

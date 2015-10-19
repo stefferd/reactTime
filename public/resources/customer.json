@@ -16,5 +16,11 @@
     "name": "Dexperts",
     "contact": "Stef van den Berg",
     "email": "stef@dexperts.nl"
+  },
+  {
+    "id": 4,
+    "name": "Philips",
+    "contact": "Oscar",
+    "email": "oscar@bextview.nl"
   }
 ]

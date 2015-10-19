@@ -1,0 +1,15 @@
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: @font;
+  background: @button;
+  border: 1px solid darken(@button, 20%);
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+
+  &:hover {
+    background: darken(@button, 20%);
+    border-color: @button;
+  }
+}
