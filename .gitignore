@@ -1,4 +1,11 @@
+/public/assets/style
+/public/assets/dist
+/resources/assets/style/css
+/resources/assets/libs
+/resources/assets/dist
 .idea
-node_modules
-libs
-dist
+/vendor
+/node_modules
+Homestead.yaml
+Homestead.json
+.env

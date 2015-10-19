@@ -20,7 +20,7 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          "style/css/main.css": "style/less/main.less"
+          "public/assets/style/css/main.css": "resources/assets/style/less/main.less"
         }
       }
     },
@@ -30,12 +30,12 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          'dist/ui/components/timesheet.js': 'ui/components/timesheet.js',
-          'dist/ui/components/companyselector.js': 'ui/components/companyselector.js',
-          'dist/ui/components/projectselector.js': 'ui/components/projectselector.js',
-          'dist/ui/components/dateselection.js': 'ui/components/dateselection.js',
-          'dist/ui/components/amountselector.js': 'ui/components/amountselector.js',
-          'dist/ui/components/description.js': 'ui/components/description.js'
+          'public/assets/dist/ui/components/timesheet.js': 'resources/assets/ui/components/timesheet.js',
+          'public/assets/dist/ui/components/companyselector.js': 'resources/assets/ui/components/companyselector.js',
+          'public/assets/dist/ui/components/projectselector.js': 'resources/assets/ui/components/projectselector.js',
+          'public/assets/dist/ui/components/dateselection.js': 'resources/assets/ui/components/dateselection.js',
+          'public/assets/dist/ui/components/amountselector.js': 'resources/assets/ui/components/amountselector.js',
+          'public/assets/dist/ui/components/description.js': 'resources/assets/ui/components/description.js'
         }
       }
     },
@@ -52,11 +52,11 @@ module.exports = function (grunt) {
     },
     watch: {
       js: {
-        files: ['ui/**/*.js'],
+        files: ['resources/assets/ui/**/*.js'],
         tasks: ['babel']
       },
       css: {
-        files: ['style/**/*.less'],
+        files: ['resources/assets/style/**/*.less'],
         tasks: ['less']
       }
     }
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask(
     'serve',
-    ['babel', 'less', 'connect', 'watch']
+    ['babel', 'less', 'watch']
   );
 
   grunt.registerTask(
