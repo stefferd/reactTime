@@ -26,7 +26,7 @@ var DateSelection = React.createClass({
       'Eergisteren': moment().subtract(2,'days').format('YYYY-MM-DD'),
       'Anders': 0
     };
-    console.log(this.ranges);
+
     var options = (
       Object.keys(this.ranges).map((index, value) => {
         return <option value={this.ranges[index]}>{index}</option>

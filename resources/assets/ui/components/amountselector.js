@@ -6,13 +6,15 @@ var AmountSelector = React.createClass({
   propTypes: {
     onChange: React.PropTypes.func.isRequired
   },
-  getInitialState: function() {
+  getInitialState: function(props) {
+    props = props || this.props;
     return {
-      value: 0
+      value: props.value
     };
   },
-  componentDidMount: function() {
-
+  componentWillReceiveProps: function(newProps, oldProps){
+    console.log('receive props', newProps, oldProps);
+    this.setState(this.getInitialState(newProps));
   },
   handleChange: function(event) {
     var value = event.target.value;
@@ -24,7 +26,7 @@ var AmountSelector = React.createClass({
   render: function() {
     var options = (
       [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8].map((amount) => {
-        return <option value={amount}>{amount}</option>
+        return <option value={amount} selected={this.state.value == amount}>{amount}</option>
       })
     );
 

@@ -3,6 +3,7 @@
     <head>
         <title>React time</title>
         <link rel="stylesheet" href="{{asset('assets/style/css/main.css')}}" />
+        <link rel="stylesheet" href="{{asset('assets/libs/toastr/toastr.min.css')}}" />
     </head>
     <body>
         <div id="content"></div>
@@ -11,6 +12,7 @@
         <script type="text/javascript" src="{{asset('assets/libs/react/react.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/libs/moment/min/moment.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('assets/libs/toastr/toastr.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/dist/ui/components/companyselector.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/dist/ui/components/projectselector.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/dist/ui/components/dateselection.js')}}"></script>

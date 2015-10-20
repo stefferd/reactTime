@@ -53,5 +53,10 @@
     "id": 11,
     "name": "Philips eCC",
     "customer": 4
+  },
+  {
+    "id": 12,
+    "name": "Cooponlinesparen.nl",
+    "customer": 1
   }
 ]

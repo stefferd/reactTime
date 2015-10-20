@@ -2,7 +2,7 @@
 
 var TimeSheet = React.createClass({
   getInitialState: function(props) {
-    props = props || this.props
+    props = props || this.props;
     return {
       customer: props.customer ? props.customer : 1,
       project: 1,
@@ -19,7 +19,6 @@ var TimeSheet = React.createClass({
       value = parseInt(value);
     }
     this.state[type] = value;
-    console.log(this.state);
     this.setState(this.state);
   },
   handleClick: function(event) {
@@ -30,6 +29,16 @@ var TimeSheet = React.createClass({
       booked_for: this.state.date,
       description: this.state.description,
       _token: document.getElementById('_token').value
+    }, (response) => {
+      if (response.status === 'OK') {
+        toastr.success('Gedaan', 'De uren zijn toegevoegd!');
+      } else {
+        toastr.error('Mislukt', 'Helaas de uren zijn niet opgeslagen');
+      }
+    });
+    this.setState({
+      amount: 0,
+      description: ''
     });
   },
   render: function() {
@@ -40,10 +49,10 @@ var TimeSheet = React.createClass({
         voor het project
         <ProjectSelector customer={this.state.customer} onChange={this.handleChange} />
         <br />
-        heb ik <AmountSelector onChange={this.handleChange} /> uur gemaakt
+        heb ik <AmountSelector value={this.state.amount} onChange={this.handleChange} /> uur gemaakt
         <DateSelection onChange={this.handleChange} />
         <br />
-        <Description onChange={this.handleChange} /><br />
+        <Description value={this.state.description} onChange={this.handleChange} /><br />
         <button type="button" onClick={this.handleClick}>Opslaan</button>
       </form>
     );
@@ -54,4 +63,22 @@ React.render(
   <TimeSheet />,
   document.getElementById('content')
 );
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-full-width",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+};
 

@@ -5,12 +5,14 @@ var Description = React.createClass({
   propTypes: {
     onChange: React.PropTypes.func.isRequired
   },
-  getInitialState: function() {
+  getInitialState: function(props) {
+    props = props || this.props;
     return {
-      value: ''
+      value: props.value
     };
   },
-  componentDidMount: function() {
+  componentWillReceiveProps: function(newProps, oldProps){
+    this.setState(this.getInitialState(newProps));
   },
   handleChange: function(event) {
     var value = event.target.value;
@@ -22,7 +24,7 @@ var Description = React.createClass({
   render: function() {
     return (
       <div className="nl-field nl-dd">
-        <input type="text" onChange={this.handleChange} />
+        <input type="text" value={this.state.value} onChange={this.handleChange} />
       </div>
     );
   }
