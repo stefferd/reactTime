@@ -23,8 +23,8 @@ var Description = React.createClass({
   },
   render: function() {
     return (
-      <div className="nl-field nl-dd">
-        <input type="text" value={this.state.value} onChange={this.handleChange} />
+      <div className="nl-field nl-dd full-width">
+        <input type="text" placeholder="Eventuele toelichting..." value={this.state.value} onChange={this.handleChange} />
       </div>
     );
   }
