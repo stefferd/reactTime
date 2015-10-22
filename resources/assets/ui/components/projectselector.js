@@ -14,7 +14,7 @@ var ProjectSelector = React.createClass({
     };
   },
   componentDidMount: function() {
-    $.get('../resources/projects.json', function(projects) {
+    $.get('public/resources/projects.json', function(projects) {
       if (this.isMounted()) {
         this.setState({
           projects: projects,

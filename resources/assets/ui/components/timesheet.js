@@ -22,7 +22,7 @@ var TimeSheet = React.createClass({
     this.setState(this.state);
   },
   handleClick: function(event) {
-    $.post('http://localhost:8000/api/entry', {
+    $.post('/api/entry', {
       customer: this.state.customer,
       project: this.state.project,
       amount: this.state.amount,
