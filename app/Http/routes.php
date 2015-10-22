@@ -18,14 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/api/entries', function() {
-    return response()->json([
-        'customer' => '1',
-        'project' => '1',
-        'amount' => '0.5',
-        'booked_for' => '2015-10-19',
-        'user_id' => 1,
-        'description' => 'First entry'
-    ]);
+    $entries = Entries::all();
+    return response()->json($entries);
 });
 
 Route::post('/api/entry', function(Request $request) {
