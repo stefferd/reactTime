@@ -14,10 +14,10 @@ var ProjectSelector = React.createClass({
     };
   },
   componentDidMount: function() {
-    $.get('resources/projects.json', function(projects) {
+    $.get('../resources/projects.json', function(projects) {
       if (this.isMounted()) {
         this.setState({
-          projects: JSON.parse(projects),
+          projects: projects,
           customer: this.props.customer
         });
       }
