@@ -7,7 +7,8 @@ var DateSelection = React.createClass({
   },
   getInitialState: function() {
     return {
-      value: ''
+      value: '',
+      date: ''
     };
   },
   componentDidMount: function() {
@@ -15,15 +16,17 @@ var DateSelection = React.createClass({
   handleChange: function(event) {
     var value = event.target.value;
     this.setState({
-      value: value
+      value: value,
+      date: ''
     });
     this.props.onChange.call(this, 'date', value);
   },
   handleDateChange: function(event) {
     var value = event.target.value;
     this.setState({
-      value: value
+      date: value
     });
+    this.props.onChange.call(this, 'date', value);
   },
   render: function() {
     this.ranges = {
