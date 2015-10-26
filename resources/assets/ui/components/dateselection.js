@@ -46,7 +46,7 @@ var DateSelection = React.createClass({
     var timeField = null;
     if (parseInt(this.state.value) === 0) {
       var today = moment().format('YYYY-MM-DD');
-      timeField = (<input className="dateField" type="text" onBlur={this.handleDateChange} value={today} />);
+      timeField = (<input className="dateField" type="date" onBlur={this.handleDateChange} defaultValue={today} />);
     }
 
     console.log(this.state.value, timeField);
