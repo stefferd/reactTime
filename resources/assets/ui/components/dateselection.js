@@ -33,11 +33,17 @@ var DateSelection = React.createClass({
       })
     );
 
+    var timeField = null;
+    if (this.state.values === 0) {
+      timeField = (<input type="text" name="customDate" />);
+    }
+
     return (
       <div className="nl-field nl-dd">
         <select onChange={this.handleChange}>
           {options}
         </select>
+        {timeField}
       </div>
     );
   }
