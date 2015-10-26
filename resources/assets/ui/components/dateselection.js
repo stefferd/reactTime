@@ -19,6 +19,12 @@ var DateSelection = React.createClass({
     });
     this.props.onChange.call(this, 'date', value);
   },
+  handleDateChange: function(event) {
+    var value = event.target.value;
+    this.setState({
+      value: value
+    });
+  },
   render: function() {
     this.ranges = {
       'Vandaag': moment().format('YYYY-MM-DD'),
@@ -33,10 +39,14 @@ var DateSelection = React.createClass({
       })
     );
 
+
     var timeField = null;
-    if (this.state.values === 0) {
-      timeField = (<input type="text" name="customDate" />);
+    if (parseInt(this.state.value) === 0) {
+      var today = moment().format('YYYY-MM-DD');
+      timeField = (<input className="dateField" type="text" onChange={this.handleDateChange} value={today} />);
     }
+
+    console.log(this.state.value, timeField);
 
     return (
       <div className="nl-field nl-dd">
