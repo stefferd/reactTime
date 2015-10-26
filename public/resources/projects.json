@@ -98,5 +98,10 @@
     "id": 19,
     "name": "Meinfitnessvorteil.de",
     "customer": 1
+  },
+  {
+    "id": 20,
+    "name": "Op=opvoordeelshop.nl",
+    "customer": 1
   }
 ]
