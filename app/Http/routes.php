@@ -22,6 +22,15 @@ Route::get('/api/entries', function() {
     return response()->json($entries);
 });
 
+Route::get('/entries/{customer}/', function($customer) {
+    $entries = Entries::where('customer', $customer)->orderBy('booked_for')->get();
+    $totalHours = 0;
+    foreach($entries as $entry) {
+        $totalHours += $entry->amount;
+    }
+    return view('entries')->with(['entries' => $entries, 'totalHours' => $totalHours]);
+});
+
 Route::post('/api/entry', function(Request $request) {
 
     $entry = new Entries();
