@@ -23,7 +23,8 @@ Route::get('/api/entries', function() {
 });
 
 Route::get('/entries/{customer}/', function($customer) {
-    $entries = Entries::where('customer', $customer)->orderBy('booked_for')->get();
+    $entries = Entries::where('customer', $customer)->where('booked_for', '>', '2015-08-31')
+        ->where('booked_for', '<', '2015-10-01')->orderBy('booked_for')->get();
     $totalHours = 0;
     foreach($entries as $entry) {
         $totalHours += $entry->amount;
