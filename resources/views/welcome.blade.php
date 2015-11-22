@@ -8,6 +8,9 @@
     </head>
     <body>
         <div id="content"></div>
+        <div class="sideform">
+            Voeg project toe
+        </div>
         <footer class="sticky bottom">
             <a href="{{ url('entries') }}" title="Entries">Entries</a>
         </footer>
