@@ -8,6 +8,9 @@
     </head>
     <body>
         <div id="content"></div>
+        <footer class="sticky bottom">
+            <a href="{{ url('entries') }}" title="Entries">Entries</a>
+        </footer>
         <input name="_token" id="_token" type="hidden" value="{{ csrf_token() }}" />
         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type="text/css" />
         <script type="text/javascript" src="{{asset('public/assets/libs/react/react.min.js')}}"></script>
