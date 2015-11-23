@@ -11,24 +11,51 @@
 |
 */
 use \App\Entries;
+use \App\Project;
+use \App\Customer;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/api/entries', function() {
-    $entries = Entries::all();
-    return response()->json($entries);
+Route::get('/api/projects', function() {
+    $projects = Project::all();
+    return response()->json($projects);
 });
 
-Route::get('/entries/{customer}/', function($customer) {
-    $entries = Entries::where('customer', $customer)->where('booked_for', '>', '2015-08-31')
-        ->where('booked_for', '<', '2015-10-01')->orderBy('booked_for')->get();
+Route::get('/entries', function() {
+    $entries = array();
     $totalHours = 0;
-    foreach($entries as $entry) {
-        $totalHours += $entry->amount;
+
+    return view('entries')->with(['entries' => $entries, 'totalHours' => $totalHours]);
+});
+
+Route::get('/api/customers', function() {
+    $customers = Customer::all();
+    return response()->json($customers);
+});
+
+Route::get('/entries/{customer?}/{minusMonth?}', function($customer, $minusMonth) {
+    if ($minusMonth != 0) {
+        $startDate = date('Y-m-d', strtotime('first day of this month', strtotime('-' . $minusMonth . ' months')));
+        $endDate = date('Y-m-d', strtotime('last day of this month', strtotime($startDate)));
+    } else {
+        $startDate = date('Y-m-d', strtotime('first day of this month'));
+        $endDate = date('Y-m-d', strtotime('last day of this month'));
     }
+    $entries = Entries::where('customer_id', $customer)->where('booked_for', '>=', $startDate)
+        ->where('booked_for', '<=', $endDate)->orderBy('booked_for')->get();
+    $totalHours = 0;
+
+    if (empty($entries)) {
+        $entries = array();
+    } else {
+        foreach($entries as $entry) {
+            $totalHours += $entry->amount;
+        }
+    }
+
     return view('entries')->with(['entries' => $entries, 'totalHours' => $totalHours]);
 });
 

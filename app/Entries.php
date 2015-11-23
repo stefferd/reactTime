@@ -17,4 +17,13 @@ class Entries extends Model
     {
         return $this->hasOne('App\User');
     }
+
+    public function project()
+    {
+        return $this->hasOne('App\Project', 'id', 'project_id');
+    }
+
+    public function customer() {
+        return $this->hasOne('App\Customer', 'id', 'customer_id');
+    }
 }

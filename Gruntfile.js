@@ -31,9 +31,11 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'public/assets/dist/ui/components/timesheet.js': 'resources/assets/ui/components/timesheet.js',
+          'public/assets/dist/ui/components/entrysheet.js': 'resources/assets/ui/components/entrysheet.js',
           'public/assets/dist/ui/components/companyselector.js': 'resources/assets/ui/components/companyselector.js',
           'public/assets/dist/ui/components/projectselector.js': 'resources/assets/ui/components/projectselector.js',
           'public/assets/dist/ui/components/dateselection.js': 'resources/assets/ui/components/dateselection.js',
+          'public/assets/dist/ui/components/monthselection.js': 'resources/assets/ui/components/monthselection.js',
           'public/assets/dist/ui/components/amountselector.js': 'resources/assets/ui/components/amountselector.js',
           'public/assets/dist/ui/components/description.js': 'resources/assets/ui/components/description.js'
         }

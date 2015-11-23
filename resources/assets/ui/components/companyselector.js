@@ -12,7 +12,7 @@ var CompanySelector = React.createClass({
     };
   },
   componentDidMount: function() {
-    $.get('public/resources/customer.json', function(response) {
+    $.get('/api/customers', function(response) {
       if (this.isMounted()) {
         this.setState({
           customers: response

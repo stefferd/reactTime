@@ -14,7 +14,7 @@ var ProjectSelector = React.createClass({
     };
   },
   componentDidMount: function() {
-    $.get('public/resources/projects.json', function(projects) {
+    $.get('/api/projects', function(projects) {
       if (this.isMounted()) {
         this.setState({
           projects: projects,
@@ -36,7 +36,7 @@ var ProjectSelector = React.createClass({
       return null;
     }
     var projectsForCustomer = this.state.projects.filter(function (project)  {
-      return project.customer === this.state.customer;
+      return project['customer_id'] === this.state.customer;
     }.bind(this));
     var options = (
       projectsForCustomer.map(function(project) {
