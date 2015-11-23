@@ -6,8 +6,7 @@
         <link rel="stylesheet" href="{{asset('public/assets/style/css/main.css')}}" />
         <link rel="stylesheet" href="{{asset('public/assets/libs/toastr/toastr.min.css')}}" />
     </head>
-    <body>
-
+    <body style="overflow: auto;">
         <div class="container">
             @if (count($entries) > 0)
                 <div class="row">
