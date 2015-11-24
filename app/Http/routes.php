@@ -62,8 +62,8 @@ Route::get('/entries/{customer?}/{minusMonth?}', function($customer, $minusMonth
 Route::post('/api/entry', function(Request $request) {
 
     $entry = new Entries();
-    $entry->customer = $request->input('customer');
-    $entry->project = $request->input('project');
+    $entry->customer_id = $request->input('customer');
+    $entry->project_id = $request->input('project');
     $entry->amount = $request->input('amount');
     $entry->booked_for = date($request->input('booked_for'));
     $entry->user_id = 1;
