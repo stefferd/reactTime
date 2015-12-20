@@ -15,51 +15,63 @@ use \App\Project;
 use \App\Customer;
 use Illuminate\Http\Request;
 
+
+$routePrefix = '';
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/api/projects', function() {
+Route::get($routePrefix . '/api/projects', function() {
     $projects = Project::all();
     return response()->json($projects);
 });
 
-Route::get('/entries', function() {
+Route::get($routePrefix . '/entries', function() {
     $entries = array();
     $totalHours = 0;
 
     return view('entries')->with(['entries' => $entries, 'totalHours' => $totalHours]);
 });
 
-Route::get('/api/customers', function() {
+Route::get($routePrefix . '/api/customers', function() {
     $customers = Customer::all();
     return response()->json($customers);
 });
 
-Route::get('/entries/{customer?}/{minusMonth?}', function($customer, $minusMonth) {
-    if ($minusMonth != 0) {
-        $startDate = date('Y-m-d', strtotime('first day of this month', strtotime('-' . $minusMonth . ' months')));
-        $endDate = date('Y-m-d', strtotime('last day of this month', strtotime($startDate)));
-    } else {
-        $startDate = date('Y-m-d', strtotime('first day of this month'));
-        $endDate = date('Y-m-d', strtotime('last day of this month'));
-    }
-    $entries = Entries::where('customer_id', $customer)->where('booked_for', '>=', $startDate)
-        ->where('booked_for', '<=', $endDate)->orderBy('booked_for')->get();
-    $totalHours = 0;
-
-    if (empty($entries)) {
-        $entries = array();
-    } else {
-        foreach($entries as $entry) {
-            $totalHours += $entry->amount;
+Route::get($routePrefix . '/entries/{customer?}/{project?}/{minusMonth?}',
+    function($customer, $project, $minusMonth) {
+        if ($minusMonth != 0) {
+            $startDate = date('Y-m-d', strtotime('first day of this month', strtotime('-' . $minusMonth . ' months')));
+            $endDate = date('Y-m-d', strtotime('last day of this month', strtotime($startDate)));
+        } else {
+            $startDate = date('Y-m-d', strtotime('first day of this month'));
+            $endDate = date('Y-m-d', strtotime('last day of this month'));
         }
+
+        $query = Entries::where('customer_id', $customer)->where('booked_for', '>=', $startDate)
+            ->where('booked_for', '<=', $endDate)->orderBy('booked_for');
+
+        if ($project != 0) {
+            $query->where('project_id', $project);
+        }
+        $entries = $query->get();
+
+        $totalHours = 0;
+
+        if (empty($entries)) {
+            $entries = array();
+        } else {
+            foreach($entries as $entry) {
+                $totalHours += $entry->amount;
+            }
+        }
+
+        return view('entries')->with(['entries' => $entries, 'totalHours' => $totalHours]);
     }
+);
 
-    return view('entries')->with(['entries' => $entries, 'totalHours' => $totalHours]);
-});
-
-Route::post('/api/entry', function(Request $request) {
+Route::post($routePrefix . '/api/entry', function(Request $request) {
 
     $entry = new Entries();
     $entry->customer_id = $request->input('customer');

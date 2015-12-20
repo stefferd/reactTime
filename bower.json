@@ -22,5 +22,8 @@
     "jquery": "~2.1.4",
     "moment": "momentjs#~2.10.6",
     "toastr": "~2.1.2"
+  },
+  "devDependencies": {
+    "font-awesome": "~4.5.0"
   }
 }

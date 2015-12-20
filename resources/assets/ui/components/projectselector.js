@@ -46,7 +46,9 @@ var ProjectSelector = React.createClass({
 
     return (
       <div className="nl-field nl-dd">
-        <select onChange={this.handleChange}>
+        <select onChange={this.handleChange}>)
+          if (this.props.
+
           {options}
         </select>
       </div>

@@ -5,6 +5,7 @@ var EntrySheet = React.createClass({
     props = props || this.props;
     return {
       customer: props.customer ? props.customer : 1,
+      project: props.project ? props.project: 0,
       month: 0
     };
   },
@@ -19,13 +20,16 @@ var EntrySheet = React.createClass({
     this.setState(this.state);
   },
   handleClick: function(event) {
-    document.location.href = '/entries/' + this.state.customer + '/' + this.state.month;
+    document.location.href = '/entries/' + this.state.customer +
+      '/' + this.state.project +
+      '/' + this.state.month;
   },
   render: function() {
     return (
       <form id="nl-form" className="nl-form">
         Bekijk overzicht voor
         <CompanySelector onChange={this.handleChange} /><br />
+        van <ProjectSelector customer={this.state.customer} onChange={this.handleChange} /><br />
         van de <MonthSelection onChange={this.handleChange} /><br />
         <button type="button" onClick={this.handleClick}>Bekijken</button>
       </form>

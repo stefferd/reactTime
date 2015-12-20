@@ -4,6 +4,7 @@
         <title>Entries / Perscriptio.nl</title>
 		<meta charset="UTF-8" />
         <link rel="stylesheet" href="{{asset('public/assets/style/css/main.css')}}" />
+        <link rel="stylesheet" href="{{asset('public/assets/libs/font-awesome/css/font-awesome.min.css')}}" />
         <link rel="stylesheet" href="{{asset('public/assets/libs/toastr/toastr.min.css')}}" />
     </head>
     <body style="overflow: auto;">
@@ -49,9 +50,20 @@
                     <div class="col-2">&nbsp;</div>
                     <div class="col-6">&nbsp;</div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="{{ url('entries') }}">Terug</a>
+                    </div>
+                </div>
             @else
                 <div id="content"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="{{ url('') }}">Terug</a>
+                    </div>
+                </div>
             @endif
+
         </div>
         <input name="_token" id="_token" type="hidden" value="{{ csrf_token() }}" />
         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type="text/css" />
@@ -60,6 +72,7 @@
         <script type="text/javascript" src="{{asset('public/assets/libs/moment/min/moment.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('public/assets/libs/toastr/toastr.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('public/assets/dist/ui/components/companyselector.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/assets/dist/ui/components/projectselector.js')}}"></script>
         <script type="text/javascript" src="{{asset('public/assets/dist/ui/components/monthselection.js')}}"></script>
         <script type="text/javascript" src="{{asset('public/assets/dist/ui/components/entrysheet.js')}}"></script>
     </body>
